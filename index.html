@@ -1,0 +1,1108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Anoze Umar, Data and Automation Engineer. Selected projects in data pipelines, business intelligence and automation.">
+<title>Anoze Umar Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,600&display=swap">
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#323940;
+  --surface:#3A424A;
+  --ink:#EEF0F2;
+  --muted:#AEB6BF;
+  --line:#4A535D;
+  --accent:#FF9146;
+  --accent-soft:#4A3B31;
+  --bar:#FF9146;
+  --bar-dim:#5E6873;
+  --display:"Anton", Impact, "Arial Narrow", sans-serif;
+  --body:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Consolas, monospace;
+}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;padding-inline:20px}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1080px;margin-inline:auto}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:.01em;line-height:1.1;text-wrap:balance;margin:0;font-synthesis:none}
+p{margin:0}
+.mono{font-family:var(--mono)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+
+/* Mockup note */
+
+/* Top bar */
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:20px;border-bottom:1px solid var(--line)}
+.brand{font-family:var(--display);font-weight:400;font-size:34px;line-height:1;letter-spacing:.02em;text-decoration:none;color:var(--ink)}
+.nav{display:flex;gap:20px;font-size:14px}
+.nav a{color:var(--muted);text-decoration:none;transition:color .15s ease}
+.nav a:hover,.nav a:focus-visible{color:var(--accent)}
+@media (max-width:480px){.brand{font-size:26px;white-space:nowrap}.nav{gap:12px;font-size:13px}}
+@media (max-width:360px){.brand{font-size:22px}.nav{gap:9px;font-size:12px}}
+
+/* Hero */
+.hero{padding-block:56px 40px;display:grid;grid-template-columns:minmax(0,1fr) clamp(240px,26vw,320px);gap:32px 56px;align-items:center}
+.hero-text{display:grid;gap:20px;max-width:760px}
+.hl{color:var(--accent)}
+.hero .role{font-size:15px;font-weight:600;color:var(--ink);letter-spacing:.08em}
+.portrait{display:block;width:100%;max-width:100%;height:auto;aspect-ratio:1;justify-self:center;align-self:start;margin-top:40px;border-radius:50%;border:3px solid var(--accent);background:#000;object-fit:cover;object-position:50% 0%}
+@media (max-width:820px){.hero{grid-template-columns:1fr;padding-block:36px 32px}.portrait{order:-1;width:180px;margin-top:0}}
+.hero h1{font-size:clamp(42px,6.6vw,78px);line-height:1.08;letter-spacing:.005em}
+.hero .lede{font-size:19px;color:var(--muted);max-width:62ch}
+.hero .where{font-family:var(--mono);font-size:13.5px;font-weight:600;font-style:italic;color:var(--ink)}
+.actions{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:500;padding:9px 14px;border-radius:6px;border:1px solid var(--line);background:var(--surface);color:var(--ink);text-decoration:none}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.btn{transition:background-color .15s ease,border-color .15s ease,color .15s ease,transform .15s ease}
+a.btn:hover,a.btn:focus-visible{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+a.btn.primary:hover,a.btn.primary:focus-visible{background:#FFA86B;border-color:#FFA86B;color:var(--bg)}
+a.btn:hover{transform:translateY(-1px)}
+@media (prefers-reduced-motion:reduce){.btn{transition:none}a.btn:hover{transform:none}}
+.worked{padding-block:18px;border-block:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px 28px;align-items:baseline}
+.worked-label{font-family:var(--mono);font-size:12.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:3px;text-underline-offset:6px;margin-right:4px}
+.worked a{font-size:14px;color:var(--ink);text-decoration:none;border-bottom:1px solid transparent;transition:color .15s ease,border-color .15s ease}
+.worked a:hover,.worked a:focus-visible{color:var(--accent);border-bottom-color:var(--accent)}
+
+/* Project grid */
+.section{padding-block:48px}
+.section-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:24px}
+.section-head h2{font-size:34px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:920px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:620px){.grid{grid-template-columns:1fr}}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:12px}
+.tile .meta{display:flex;justify-content:space-between;gap:8px}
+.tile h3{font-size:23px;color:var(--ink)}
+.tile .sum{font-size:13.5px;line-height:1.55;color:var(--muted)}
+.tile .result{font-size:13.5px;line-height:1.55;font-weight:500;padding-top:12px;border-top:1px solid var(--line)}
+.tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:auto}
+.tag{font-family:var(--mono);font-size:11px;letter-spacing:-.01em;padding:2px 6px;border-radius:4px;background:var(--bg);color:var(--muted);border:1px solid var(--line)}
+.tile .go{font-size:14px;font-weight:600;text-decoration:none}
+.tile .soon{font-size:13px;color:var(--muted)}
+.tile .links{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px}
+.pill{position:relative;z-index:1;display:inline-flex;align-items:center;gap:4px;font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.02em;line-height:1.4;padding:2px 8px;border-radius:999px;border:1px solid var(--accent);color:var(--accent);text-decoration:none;transition:background-color .15s ease,color .15s ease}
+.pill:hover,.pill:focus-visible{background:var(--accent);color:var(--bg)}
+.dash{margin-top:6px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--bg);aspect-ratio:16/9}
+.dash iframe{display:block;width:100%;height:100%;border:0}
+.dash.doc{aspect-ratio:auto;height:min(85vh,860px);background:#525659}
+.pdf-link{display:none}
+@media (max-width:700px){.dash.doc{display:none}.pdf-link{display:inline-flex;margin-top:6px}}
+@media (max-width:700px){.dash{aspect-ratio:3/4}}
+.tile .title-block{display:grid;gap:2px}
+.tile .subtitle{font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;color:var(--muted)}
+.tile .hook{font-size:15px;font-weight:600;color:var(--ink);line-height:1.45}
+.tile .result.story{font-weight:400;color:var(--ink);font-size:13.5px;line-height:1.55}
+.tile{position:relative;transition:border-color .2s ease,background-color .2s ease,transform .2s ease,box-shadow .2s ease}
+.tile h3{transition:color .2s ease}
+.tile:hover,.tile:focus-within{border-color:var(--accent);background:#3E464F;transform:translateY(-3px);box-shadow:0 12px 28px rgba(0,0,0,.28)}
+.tile:hover h3,.tile:focus-within h3{color:var(--accent)}
+.tile .go::after{content:"";position:absolute;inset:0;border-radius:10px}
+.tile .go:focus-visible{outline:none}
+.tile:has(.go:focus-visible){outline:2px solid var(--accent);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){.tile,.tile h3{transition:none}.tile:hover,.tile:focus-within{transform:none}}
+
+/* Skills matrix */
+.legend{display:flex;flex-wrap:wrap;gap:6px 12px;font-size:11.5px;color:var(--muted)}
+.legend-end{justify-content:flex-end;margin-top:10px}
+.legend .lg{display:inline-flex;align-items:center;gap:6px}
+.legend .sw{display:inline-block;width:11px;height:11px;border-radius:2px}
+.skills{display:grid;gap:0}
+.srow{display:grid;grid-template-columns:160px 1fr;gap:6px 14px;align-items:center;padding-block:8px;border-bottom:1px solid var(--line)}
+.srow:first-child{border-top:1px solid var(--line)}
+.scat{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
+.scells{display:flex;flex-wrap:wrap;gap:3px}
+.sk{flex:0 1 auto;min-width:108px;white-space:nowrap;position:relative;display:flex;align-items:center;justify-content:space-between;gap:6px;padding:6px 10px;border-radius:4px;font-size:12.5px;font-weight:500;text-decoration:none;min-height:31px;outline-offset:2px}
+.sk .ev{font-size:11px;opacity:.8}
+.l4{background:#FF9146;color:#1E2226}
+.l3{background:#C27744;color:#1E2226}
+.l2{background:#8E6143;color:#EEF0F2}
+.l1{background:#5F4C41;color:#EEF0F2}
+a.sk:hover,a.sk:focus-visible,span.sk:hover,span.sk:focus-visible{box-shadow:0 0 0 2px var(--ink)}
+.sk[data-tip]:hover::after,.sk[data-tip]:focus-visible::after{content:attr(data-tip);position:absolute;left:50%;bottom:calc(100% + 6px);transform:translateX(-50%);white-space:nowrap;background:#1E2226;color:#EEF0F2;border:1px solid var(--line);font-size:12px;font-weight:500;padding:5px 8px;border-radius:5px;z-index:5;pointer-events:none}
+@media (max-width:700px){.srow{grid-template-columns:1fr}.scat{padding-top:0}.sk{min-width:0;flex:1 1 auto}}
+
+/* About */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+@media (max-width:760px){.about{grid-template-columns:1fr}}
+.about p{max-width:60ch;color:var(--ink)}
+.about p + p{margin-top:12px}
+.sub-h{font-size:26px;color:var(--ink);margin-bottom:16px}
+.roles{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.roles li{display:grid;grid-template-columns:1fr auto;gap:4px 16px;padding-block:10px;border-bottom:1px solid var(--line);font-size:14.5px}
+.roles li:first-child{border-top:1px solid var(--line)}
+.roles .org{color:var(--muted);grid-column:1}
+.roles .yrs{font-family:var(--mono);font-size:12.5px;color:var(--muted);grid-row:1 / span 2;grid-column:2;align-self:center;font-variant-numeric:tabular-nums}
+/* Experience stretches to the height of About on wide screens */
+@media (min-width:761px){.about > div{display:flex;flex-direction:column}.about .roles{flex:1;grid-auto-rows:1fr}.about .roles li{align-content:center}}
+
+footer{padding-block:40px 56px;border-top:1px solid var(--line);display:grid;gap:12px;font-size:14px;color:var(--muted)}
+.contact-row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px 16px}
+footer .actions{gap:8px}
+footer .btn{padding:5px 12px;font-size:13px}
+footer .email{font-family:var(--mono);color:var(--ink);user-select:all}
+
+/* Case study */
+.back{display:inline-flex;align-items:center;gap:6px;margin-top:28px;padding:3px 14px;line-height:1.5;border-radius:999px;background:var(--accent);color:var(--bg);font-size:13px;font-weight:600;text-decoration:none;transition:background-color .15s ease}
+.back:hover,.back:focus-visible{background:#FFA86B;color:var(--bg)}
+.back:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.cs-head{padding-block:28px 32px;display:grid;gap:16px;max-width:780px}
+.cs-head h1{font-size:clamp(42px,6.2vw,72px);line-height:1.08;letter-spacing:.005em}
+.cs-head .sub{font-size:20px;color:var(--muted)}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-block:1px solid var(--line)}
+@media (max-width:760px){.facts{grid-template-columns:repeat(2,1fr)}}
+.facts div{padding:14px 16px 14px 0;display:grid;gap:4px;font-size:14.5px}
+.prose{max-width:68ch}
+.prose p + p{margin-top:14px}
+.cs-section{padding-block:30px;border-bottom:1px solid var(--line)}
+.cs-section > h2{font-size:32px;margin-bottom:16px}
+.cs-section > .eyebrow{display:block;margin-bottom:8px}
+
+.lanes{width:100%;border-collapse:collapse;font-size:14.5px;min-width:560px}
+.lanes th{text-align:left;font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);padding:8px 12px 8px 0;border-bottom:1px solid var(--line)}
+.lanes td{padding:10px 12px 10px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.lanes td:first-child{font-family:var(--mono);font-size:13px;white-space:nowrap}
+.scroll{overflow-x:auto;margin-top:20px}
+
+.steps{list-style:none;margin:20px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;counter-reset:step}
+@media (max-width:860px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:480px){.steps{grid-template-columns:1fr}}
+.steps li{counter-increment:step;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px;display:grid;gap:6px;align-content:start}
+.steps li::before{content:counter(step, decimal-leading-zero);font-family:var(--mono);font-size:12px;color:var(--accent)}
+.steps b{font-family:var(--display);font-weight:400;font-size:20px;letter-spacing:.01em}
+.steps span{font-size:14px;color:var(--muted)}
+
+.funnel{margin-top:24px;display:grid;gap:14px;max-width:760px}
+.frow{display:grid;grid-template-columns:minmax(150px,220px) 1fr;gap:6px 16px;align-items:center}
+@media (max-width:560px){.frow{grid-template-columns:1fr}}
+.flabel{font-size:14px}
+.flabel small{display:block;color:var(--muted);font-size:12.5px}
+.ftrack{display:flex;align-items:center;gap:10px}
+.fbar{height:22px;border-radius:3px;background:var(--bar-dim);min-width:4px}
+.fbar.end{background:var(--bar)}
+.fnum{font-family:var(--mono);font-size:14px;font-variant-numeric:tabular-nums}
+.fnote{font-size:13.5px;color:var(--muted);margin-top:16px;max-width:68ch}
+
+.calls{display:grid;gap:16px;margin-top:20px}
+.call{display:grid;grid-template-columns:200px 1fr;gap:8px 28px;padding-block:18px;border-top:1px solid var(--line)}
+@media (max-width:700px){.call{grid-template-columns:1fr}}
+.call h3{font-size:21px}
+.call p{color:var(--ink);max-width:66ch}
+.call p + p{margin-top:10px}
+.call code{font-family:var(--mono);font-size:13px;background:var(--accent-soft);padding:1px 5px;border-radius:3px}
+.cs-section > .eyebrow{font-size:14.5px;font-weight:600;color:var(--ink);letter-spacing:.08em;margin-bottom:10px}
+.callout{margin-top:16px;padding:14px 18px;border-radius:8px;background:var(--accent-soft);border:1px solid rgba(255,145,70,.35);color:var(--ink);font-size:16px;font-weight:600;max-width:720px}
+.arch-wrap{overflow-x:auto;margin-top:6px;border:1px solid var(--line);border-radius:10px;background:var(--bg);padding:14px}
+.arch{display:block;width:100%;min-width:860px;height:auto;font-family:var(--body)}
+.arch .lbl text{font-family:var(--mono);font-size:11px;letter-spacing:.08em;fill:var(--muted)}
+.arch .node rect{fill:var(--surface);stroke:var(--line);stroke-width:1}
+.arch .node.goal rect{fill:var(--accent-soft);stroke:var(--accent)}
+.arch .node.key rect{stroke:var(--accent);stroke-width:1.5}
+.arch .node.side rect{stroke-dasharray:4 3}
+.arch .etl rect{fill:none;stroke:var(--accent);stroke-width:1.5}
+.arch .step rect{fill:var(--surface);stroke:var(--line)}
+.arch .step text{font-size:12.5px;fill:var(--ink);text-anchor:middle}
+.arch text.t{font-size:14px;font-weight:600;fill:var(--ink);text-anchor:middle}
+.arch text.t.sm{font-size:12.5px}
+.arch text.s{font-size:11.5px;fill:var(--muted);text-anchor:middle}
+.arch .flow path{fill:none;stroke:var(--accent);stroke-width:2}
+.arch .side-flow path{stroke:var(--muted);stroke-width:1.5;stroke-dasharray:4 3}
+.arch path.in{fill:none;stroke:var(--line);stroke-width:1.5}
+.arch .ah{fill:var(--accent)}
+.arch .ahg{fill:var(--muted)}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px}
+@media (max-width:700px){.compare{grid-template-columns:1fr}}
+.compare > div{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:16px}
+.compare .after{border-color:var(--accent)}
+.compare b{font-family:var(--display);font-weight:400;font-size:20px;letter-spacing:.01em}
+.compare .after b{color:var(--accent)}
+.compare ul{margin:8px 0 0;padding-left:18px;display:grid;gap:4px;font-size:14px;color:var(--muted)}
+.compare .after ul{color:var(--ink)}
+.fails{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+@media (max-width:760px){.fails{grid-template-columns:1fr}}
+.fails div{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px;display:grid;gap:6px;align-content:start}
+.fails b{font-family:var(--display);font-weight:400;font-size:18px;letter-spacing:.01em}
+.fails span{font-size:13.5px;color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:6px}
+@media (max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
+.stats div{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px;display:grid;gap:4px;align-content:start}
+.stats b{font-family:var(--display);font-weight:400;font-size:34px;line-height:1;color:var(--accent);font-variant-numeric:tabular-nums}
+.stats span{font-size:13px;color:var(--muted)}
+.rule{margin-top:28px;padding:18px 20px;border-left:3px solid var(--accent);background:var(--surface);font-family:var(--display);font-size:22px;letter-spacing:.01em;line-height:1.3;max-width:720px}
+
+.outcomes{width:100%;border-collapse:collapse;font-size:15px;min-width:460px}
+.outcomes th{text-align:left;font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);padding:8px 12px 8px 0;border-bottom:1px solid var(--line)}
+.outcomes td{padding:10px 12px 10px 0;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+.outcomes td:nth-child(3){font-weight:600}
+
+.shots{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+@media (max-width:760px){.shots{grid-template-columns:1fr}}
+.shot-img{margin:0;display:grid;gap:8px;align-content:start}
+.shot-img.wide{grid-column:1 / -1}
+.shot-img img{display:block;width:100%;height:auto;max-width:100%;border-radius:8px;border:1px solid var(--line);transition:border-color .15s ease}
+.shot-img a:hover img,.shot-img a:focus-visible img{border-color:var(--accent)}
+.shot-img:not(.wide) img{aspect-ratio:16/9;object-fit:cover;object-position:top left}
+.shot-img figcaption{font-size:13px;color:var(--muted)}
+@media (max-width:760px){.shots{grid-template-columns:1fr}}
+.shot{aspect-ratio:16/10;max-width:100%;border:1px dashed var(--line);border-radius:8px;display:grid;place-items:center;text-align:center;padding:12px;font-size:13px;color:var(--muted);background:var(--surface)}
+
+.stack{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:20px}
+@media (max-width:760px){.stack{grid-template-columns:1fr}}
+.stack div{display:grid;gap:4px;font-size:14.5px}
+
+.next{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-block:32px 8px}
+
+@media (prefers-reduced-motion:no-preference){
+  .fbar{transition:width .6s ease}
+}
+</style>
+<style>body{margin:0} img{max-width:100%} [hidden]{display:none!important}</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <a class="brand" href="#top">Anoze Umar</a>
+    <nav class="nav" aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#work">Work</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+
+  <!-- HOME VIEW -->
+  <main id="home">
+    <section class="hero" id="top">
+      <div class="hero-text">
+      <p class="eyebrow role">Data &amp; Automation Engineer</p>
+      <h1>I build the systems organisations make <span class="hl">decisions</span> from.</h1>
+      <p class="lede">I engineer scalable data infrastructure, pipelines, dashboards and automations that leadership teams run on and companies grow from. Five years across health distribution, IT services and international development.</p>
+      <p class="where">Abuja, Nigeria · WAT (UTC+1) · Open to remote work and relocation</p>
+      <div class="actions">
+        <a class="btn primary" href="#work">See my works</a>
+        <a class="btn" href="assets/Anoze_Umar_CV.pdf" download="Anoze_Umar_CV.pdf">Download CV</a>
+        <a class="btn" href="https://github.com/Anoze-Umar">GitHub</a>
+        <a class="btn" href="https://linkedin.com/in/anoze-umar">LinkedIn</a>
+      </div>
+      </div>
+      <img class="portrait" src="assets/anoze-portrait.jpg" alt="Anoze Umar" width="800" height="1001">
+    </section>
+
+    <div class="worked">
+      <span class="worked-label">Delivered for</span>
+      <a href="https://sfhnigeria.org/" target="_blank" rel="noopener">Society for Family Health</a>
+      <a href="https://i4di.org/" target="_blank" rel="noopener">I4DI</a>
+      <a href="https://www.georiskmap.org/" target="_blank" rel="noopener">GeoRiskMap</a>
+      <a href="https://www.redcupit.com/" target="_blank" rel="noopener">RedCup IT</a>
+      <a href="https://bluehouse.com.ng/" target="_blank" rel="noopener">Bluehouse IT</a>
+      <a href="https://www.usda.gov/" target="_blank" rel="noopener">USDA</a>
+      <a href="https://www.usaid.gov/" target="_blank" rel="noopener">USAID</a>
+      <a href="https://www.mars.com/" target="_blank" rel="noopener">MARS Inc</a>
+      <a href="https://nema.gov.ng/" target="_blank" rel="noopener">NEMA Nigeria</a>
+    </div>
+
+    <section class="section" id="work">
+      <div class="section-head">
+        <h2>Selected works</h2>
+        <span class="eyebrow">6 projects</span>
+      </div>
+
+      <div class="grid">
+
+        <article class="tile live">
+          <div class="meta"><span class="eyebrow">Automation</span><span class="eyebrow">2026</span></div>
+          <div class="title-block">
+            <h3>Oze</h3>
+            <p class="subtitle">Personal AI Job Board</p>
+          </div>
+          <p class="hook">Oze probably found your job posting before you found me.</p>
+          <p class="sum">Oze is an AI job recommendation engine that searches five job markets worldwide and scores every opening against my CV.</p>
+          <p class="result story">Good roles were buried among thousands of unsuitable listings, and checking job sites by hand took hours I didn't have. So I built a self-running AI lead-generation pipeline: about 1,500 listings a week, narrowed to the 15 worth my time, waiting on my phone before I wake.</p>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">JavaScript</span><span class="tag">AI</span><span class="tag">Docker</span></div>
+          <a class="go" href="#oze">Read the case study →</a>
+        </article>
+
+        <article class="tile">
+          <div class="meta"><span class="eyebrow">Business Intelligence · Microsoft</span><span class="eyebrow">2026</span></div>
+          <div class="title-block">
+            <h3>Sales Intelligence Pipeline</h3>
+            <p class="subtitle">Automated ERP Reporting</p>
+          </div>
+          <p class="sum">An end-to-end pipeline that catches sales and stock reports straight from email, cleans them, and feeds a single live Power BI app built on Microsoft Fabric.</p>
+          <p class="result story">Reports arrived from several locations and two different ERP systems, each with its own layout: buried headers, merged cells, mismatched column names. Stitching them together by hand took hours every week and let errors reach the numbers leadership decided on. Now every file is captured, parsed and checked automatically, the app refreshes without anyone touching a spreadsheet, and leadership reviews numbers they can trust.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Power Automate</span><span class="tag">Fabric</span><span class="tag">Power BI</span></div>
+          <a class="go" href="#pipeline">Read the case study →</a>
+        </article>
+
+        <article class="tile">
+          <div class="meta"><span class="eyebrow">Business Intelligence · Google</span><span class="eyebrow">2025</span></div>
+          <div class="title-block">
+            <h3>Plantanova</h3>
+            <p class="subtitle">Inventory Intelligence System</p>
+          </div>
+          <p class="sum">An inventory and analytics system built around Plantanova, a Spanish exporter of capers, olives and pickles, entirely on Google tools.</p>
+          <p class="result story">Perishable stock, cold rooms, and a different shelf life for every product: one missed expiry or empty shelf can cost an export order. I modelled the whole operation, tracing every batch from supplier to customer, shipping oldest-expiry-first, re-ordering before stock runs short and alerting the right manager before trouble lands. On two years of modelled trading it holds 97 to 100% order fill with cold rooms around 60% full.</p>
+          <div class="tags"><span class="tag">Apps Script</span><span class="tag">Google Sheets</span><span class="tag">Looker Studio</span></div>
+          <div class="links"><a class="go" href="#plantanova">Read the case study →</a><a class="pill" href="https://lookerstudio.google.com/reporting/1c2e1a1b-bb0e-470a-ac76-51b36ad344b6" target="_blank" rel="noopener">Live dashboard ↗</a></div>
+        </article>
+
+        <article class="tile">
+          <div class="meta"><span class="eyebrow">Low-code · Microsoft</span><span class="eyebrow">2026</span></div>
+          <div class="title-block">
+            <h3>Integrated Management System</h3>
+            <p class="subtitle">ISO Compliance on Microsoft 365</p>
+          </div>
+          <p class="sum">A Microsoft 365 system replacing manual quality, HSE and document control for an offshore EPCI contractor.</p>
+          <p class="result story">Risks, incidents, corrective actions and permits sat in separate registers across ten departments, so proving ISO and API compliance meant chasing emails and spreadsheets. I built the apps, workflows and reporting on top: every record numbered, scored and logged automatically, a high risk left open 14 days raises its own corrective action, and one Power BI suite, secured by role, shows leadership where the company stands.</p>
+          <div class="tags"><span class="tag">Power Apps</span><span class="tag">Power Automate</span><span class="tag">Power BI</span><span class="tag">SharePoint</span></div>
+          <a class="go" href="#ims">Read the case study →</a>
+        </article>
+
+        <article class="tile">
+          <div class="meta"><span class="eyebrow">Business Intelligence · SQL</span><span class="eyebrow">2025</span></div>
+          <div class="title-block">
+            <h3>Aura Churn Intelligence</h3>
+            <p class="subtitle">Salon Retention Analytics</p>
+          </div>
+          <p class="sum">A churn and retention analytics system for Aura Beauty Salon in New Zealand, from database to live Power BI app.</p>
+          <p class="result story">Salon clients rarely cancel; they just stop booking, and the owner finds out when revenue dips months later. I built the stack end to end off the Zenoti API: salon records funnelled into a cloud MySQL database, SQL views that classify every client as active, at risk or churned each month, and a Power BI app that shows who is slipping, which services keep clients, and who can still be won back.</p>
+          <div class="tags"><span class="tag">MySQL</span><span class="tag">SQL</span><span class="tag">Power BI</span><span class="tag">DAX</span></div>
+          <div class="links"><a class="go" href="#aura">Read the case study →</a><a class="pill" href="https://app.powerbi.com/view?r=eyJrIjoiY2Y1MTYxZTItMzVkZS00NjA1LTg2MjQtNDlmNWUxOTNmM2M2IiwidCI6IjlhNGMxNjFlLTU2NjQtNDZhMi05ZjBjLWM1OTk4ODRhNDEzZSIsImMiOjF9" target="_blank" rel="noopener">Live dashboard ↗</a></div>
+        </article>
+
+        <article class="tile">
+          <div class="meta"><span class="eyebrow">Automation · Google</span><span class="eyebrow">2025</span></div>
+          <div class="title-block">
+            <h3>YAAG</h3>
+            <p class="subtitle">Year at a Glance</p>
+          </div>
+          <p class="sum">A Google Sheets to Google Calendar automation that lets one person run another's diary without ever entering their calendar.</p>
+          <p class="result story">An executive's calendar is private, but the assistant who runs it needs somewhere to plan, move and clear commitments. YAAG gives them a year-at-a-glance sheet: fill in a day and the event appears, change it and the event moves, clear it and the event is gone. The executive only ever opens the calendar.</p>
+          <div class="tags"><span class="tag">Apps Script</span><span class="tag">Google Sheets</span><span class="tag">Google Calendar</span></div>
+          <a class="go" href="#yaag">Read the case study →</a>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="section" id="skills" style="border-top:1px solid var(--line)">
+      <div class="section-head">
+        <h2>Skills</h2>
+      </div>
+      <div class="skills" role="table" aria-label="Skills by area and depth">
+        <div class="srow" role="row"><div class="scat" role="rowheader">Programming</div><div class="scells" role="cell"><span class="sk l4" data-tip="Expert" aria-label="SQL: Expert" tabindex="0">SQL</span><span class="sk l4" data-tip="Expert" aria-label="Python: Expert" tabindex="0">Python</span><span class="sk l3" data-tip="Advanced" aria-label="DAX: Advanced" tabindex="0">DAX</span><span class="sk l3" data-tip="Advanced" aria-label="JavaScript: Advanced" tabindex="0">JavaScript</span><span class="sk l3" data-tip="Advanced" aria-label="Power Query M: Advanced" tabindex="0">Power Query M</span><span class="sk l2" data-tip="Proficient" aria-label="PowerShell: Proficient" tabindex="0">PowerShell</span></div></div>
+        <div class="srow" role="row"><div class="scat" role="rowheader">Data engineering</div><div class="scells" role="cell"><span class="sk l4" data-tip="Expert" aria-label="Data modelling: Expert" tabindex="0">Data modelling</span><span class="sk l4" data-tip="Expert" aria-label="ETL pipelines: Expert" tabindex="0">ETL pipelines</span><span class="sk l4" data-tip="Expert" aria-label="Data validation: Expert" tabindex="0">Data validation</span><span class="sk l3" data-tip="Advanced" aria-label="MySQL: Advanced" tabindex="0">MySQL</span><span class="sk l2" data-tip="Proficient" aria-label="Microsoft Fabric: Proficient" tabindex="0">Microsoft Fabric</span><span class="sk l2" data-tip="Proficient" aria-label="PostgreSQL: Proficient" tabindex="0">PostgreSQL</span></div></div>
+        <div class="srow" role="row"><div class="scat" role="rowheader">BI and visualisation</div><div class="scells" role="cell"><span class="sk l4" data-tip="Expert" aria-label="Power BI: Expert" tabindex="0">Power BI</span><span class="sk l4" data-tip="Expert" aria-label="Excel: Expert" tabindex="0">Excel</span><span class="sk l3" data-tip="Advanced" aria-label="Looker Studio: Advanced" tabindex="0">Looker Studio</span><span class="sk l3" data-tip="Advanced" aria-label="Data storytelling: Advanced" tabindex="0">Data storytelling</span><span class="sk l2" data-tip="Proficient" aria-label="Tableau: Proficient" tabindex="0">Tableau</span></div></div>
+        <div class="srow" role="row"><div class="scat" role="rowheader">Automation</div><div class="scells" role="cell"><span class="sk l4" data-tip="Expert" aria-label="Workflow automation: Expert" tabindex="0">Workflow automation</span><span class="sk l4" data-tip="Expert" aria-label="n8n: Expert" tabindex="0">n8n</span><span class="sk l3" data-tip="Advanced" aria-label="API integration: Advanced" tabindex="0">API integration</span><span class="sk l3" data-tip="Advanced" aria-label="Apps Script: Advanced" tabindex="0">Apps Script</span><span class="sk l3" data-tip="Advanced" aria-label="Power Automate: Advanced" tabindex="0">Power Automate</span><span class="sk l3" data-tip="Advanced" aria-label="SharePoint: Advanced" tabindex="0">SharePoint</span><span class="sk l2" data-tip="Proficient" aria-label="Power Apps: Proficient" tabindex="0">Power Apps</span></div></div>
+        <div class="srow" role="row"><div class="scat" role="rowheader">AI and analytics</div><div class="scells" role="cell"><span class="sk l4" data-tip="Expert" aria-label="Embedded AI: Expert" tabindex="0">Embedded AI</span><span class="sk l3" data-tip="Advanced" aria-label="Prompt engineering: Advanced" tabindex="0">Prompt engineering</span><span class="sk l3" data-tip="Advanced" aria-label="LLM scoring: Advanced" tabindex="0">LLM scoring</span><span class="sk l3" data-tip="Advanced" aria-label="Statistics: Advanced" tabindex="0">Statistics</span><span class="sk l2" data-tip="Proficient" aria-label="Machine learning: Proficient" tabindex="0">Machine learning</span></div></div>
+        <div class="srow" role="row"><div class="scat" role="rowheader">Infrastructure</div><div class="scells" role="cell"><span class="sk l2" data-tip="Proficient" aria-label="Docker: Proficient" tabindex="0">Docker</span><span class="sk l2" data-tip="Proficient" aria-label="Linux VPS: Proficient" tabindex="0">Linux VPS</span><span class="sk l2" data-tip="Proficient" aria-label="Git and GitHub: Proficient" tabindex="0">Git and GitHub</span><span class="sk l1" data-tip="Working knowledge" aria-label="Cloudflare: Working knowledge" tabindex="0">Cloudflare</span></div></div>
+        <div class="srow" role="row"><div class="scat" role="rowheader">GIS</div><div class="scells" role="cell"><span class="sk l4" data-tip="Expert" aria-label="Spatial analysis: Expert" tabindex="0">Spatial analysis</span><span class="sk l3" data-tip="Advanced" aria-label="Flood modelling: Advanced" tabindex="0">Flood modelling</span></div></div>
+      </div>
+      <div class="legend legend-end" aria-label="Shade shows depth"><span class="lg"><i class="sw l4"></i>Expert</span><span class="lg"><i class="sw l3"></i>Advanced</span><span class="lg"><i class="sw l2"></i>Proficient</span><span class="lg"><i class="sw l1"></i>Working knowledge</span></div>
+    </section>
+
+    <section class="section about" id="about" style="border-top:1px solid var(--line)">
+      <div>
+        <h2 class="sub-h">About</h2>
+        <p>I build things that work, on screen and off it.</p>
+        <p>On screen, that means data systems people actually run on: pipelines that catch reports before anyone downloads them, dashboards that show leaders where the business stands and what needs attention next, and automations that take repetitive work off people's desks for good. Five years across health distribution, IT services and international development have taught me the same lesson each time: a number only matters if someone trusts it enough to act on it. That is why I automate first: hours and money leak fastest through manual work, and people forget, but systems remember.</p>
+        <p>Off screen, I'm a hands-on DIYer: electrics and electronics, plumbing, masonry, woodwork and carpentry, metalwork, arts and crafts. Mostly home improvement and interior decoration, and mostly because I love finding out how things work.</p>
+        <p>I hold an MSc in Geographic Information Systems and Udacity certifications as a Data Scientist and Data Analyst. I also teach, from industry leaders to young data enthusiasts, showing them what is possible with data.</p>
+      </div>
+      <div>
+        <h2 class="sub-h">Experience</h2>
+      <ul class="roles">
+        <li><span>Senior Data Analyst</span><span class="org">Society for Family Health, Abuja</span><span class="yrs">2026 – Present</span></li>
+        <li><span>Data Analyst (contract)</span><span class="org">RedCup IT, California (remote)</span><span class="yrs">2025</span></li>
+        <li><span>Data Analyst</span><span class="org">Bluehouse IT and Security, Abuja</span><span class="yrs">2023 – 2025</span></li>
+        <li><span>Data Analyst</span><span class="org">Catalyze Data, Toronto (remote)</span><span class="yrs">2022 – 2023</span></li>
+        <li><span>Data Analyst, Geospatial &amp; ML</span><span class="org">Geohazards Risk Mapping Initiative</span><span class="yrs">2022</span></li>
+        <li><span>Program Associate, Research &amp; Data</span><span class="org">I4DI, Washington D.C. (remote)</span><span class="yrs">2021</span></li>
+      </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- CASE STUDY VIEW -->
+  <main id="pipeline" hidden>
+    <a class="back" href="#work">← All works</a>
+
+    <section class="cs-head">
+      <p class="eyebrow">Case study · Business Intelligence · 2026</p>
+      <h1>Sales Intelligence Pipeline</h1>
+      <p class="sub">Automated ERP reporting. It catches sales and stock reports the moment they arrive by email, reconciles two very different systems into one clean model, and keeps a live Power BI app current without anyone touching a spreadsheet.</p>
+    </section>
+
+    <section class="cs-section">
+      <span class="eyebrow">Solution architecture</span>
+      <div class="arch-wrap"><svg class="arch" viewBox="0 0 1185 395" role="img" aria-labelledby="arch-t arch-d">
+  <title id="arch-t">Solution architecture</title>
+  <desc id="arch-d">Two ERP systems send reports by email. Power Automate captures and routes the attachments into a SharePoint landing zone. A Python ETL finds the real header, cleans, maps both systems to one schema and validates the data, sending malformed files to quarantine and writing a log and alerts on every run. Clean unified tables feed a Microsoft Fabric semantic model and a live Power BI app used by leadership.</desc>
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker>
+    <marker id="ahg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ahg"/></marker>
+  </defs>
+
+  <g class="lbl"><text x="20" y="24">SOURCES</text><text x="215" y="24">CAPTURE</text><text x="585" y="24">LAND</text><text x="775" y="24">TRANSFORM</text><text x="1005" y="24">SERVE</text></g>
+
+  <g class="node"><rect x="20" y="78" width="150" height="58" rx="10"/><text class="t" x="95" y="103">ERP system A</text><text class="s" x="95" y="122">Clean exports</text></g>
+  <g class="node"><rect x="20" y="166" width="150" height="58" rx="10"/><text class="t" x="95" y="191">ERP system B</text><text class="s" x="95" y="210">Report-style exports</text></g>
+
+  <g class="node"><rect x="215" y="121" width="140" height="62" rx="10"/><text class="t" x="285" y="147">Email inbox</text><text class="s" x="285" y="166">Reports as attachments</text></g>
+  <g class="node"><rect x="395" y="121" width="150" height="62" rx="10"/><text class="t" x="470" y="147">Power Automate</text><text class="s" x="470" y="166">Capture and route</text></g>
+  <g class="node"><rect x="585" y="121" width="150" height="62" rx="10"/><text class="t" x="660" y="147">SharePoint</text><text class="s" x="660" y="166">Raw landing zone</text></g>
+
+  <g class="etl"><rect x="775" y="40" width="190" height="252" rx="12"/><text class="t" x="870" y="66">Python ETL</text></g>
+  <g class="step"><rect x="790" y="82" width="160" height="36" rx="8"/><text x="870" y="105">Find the real header</text></g>
+  <g class="step"><rect x="790" y="128" width="160" height="36" rx="8"/><text x="870" y="151">Clean and unmerge</text></g>
+  <g class="step"><rect x="790" y="174" width="160" height="36" rx="8"/><text x="870" y="197">Map to one schema</text></g>
+  <g class="step"><rect x="790" y="220" width="160" height="36" rx="8"/><text x="870" y="243">Validate and derive</text></g>
+  <path class="in" d="M870 118 V128 M870 164 V174 M870 210 V220"/>
+
+  <g class="node side"><rect x="775" y="322" width="90" height="54" rx="10"/><text class="t sm" x="820" y="345">Quarantine</text><text class="s" x="820" y="362">Malformed files</text></g>
+  <g class="node side"><rect x="875" y="322" width="90" height="54" rx="10"/><text class="t sm" x="920" y="345">Log + alerts</text><text class="s" x="920" y="362">Every run audited</text></g>
+
+  <g class="node"><rect x="1005" y="40" width="160" height="58" rx="10"/><text class="t" x="1085" y="65">Unified tables</text><text class="s" x="1085" y="84">One clean schema</text></g>
+  <g class="node"><rect x="1005" y="128" width="160" height="58" rx="10"/><text class="t" x="1085" y="153">Microsoft Fabric</text><text class="s" x="1085" y="172">Semantic model</text></g>
+  <g class="node"><rect x="1005" y="216" width="160" height="58" rx="10"/><text class="t" x="1085" y="241">Power BI app</text><text class="s" x="1085" y="260">Live, refreshes itself</text></g>
+  <g class="node goal"><rect x="1005" y="304" width="160" height="58" rx="10"/><text class="t" x="1085" y="329">Leadership</text><text class="s" x="1085" y="348">Numbers they can trust</text></g>
+
+  <g class="flow">
+    <path d="M170 107 C 195 107, 190 140, 213 145" marker-end="url(#ah)"/>
+    <path d="M170 195 C 195 195, 190 165, 213 160" marker-end="url(#ah)"/>
+    <path d="M355 152 H393" marker-end="url(#ah)"/>
+    <path d="M545 152 H583" marker-end="url(#ah)"/>
+    <path d="M735 152 H773" marker-end="url(#ah)"/>
+    <path d="M965 69 H1003" marker-end="url(#ah)"/>
+    <path d="M1085 98 V126" marker-end="url(#ah)"/>
+    <path d="M1085 186 V214" marker-end="url(#ah)"/>
+    <path d="M1085 274 V302" marker-end="url(#ah)"/>
+  </g>
+  <g class="flow side-flow">
+    <path d="M820 292 V320" marker-end="url(#ahg)"/>
+    <path d="M920 292 V320" marker-end="url(#ahg)"/>
+  </g>
+</svg></div>
+      <p class="fnote">The main path in orange runs unattended. Anything that fails a check is set aside and reported, never silently dropped.</p>
+    </section>
+
+    <section class="cs-section">
+      <span class="eyebrow">The problem</span>
+      <h2>Reporting shouldn't start with a download.</h2>
+      <div class="prose">
+        <p>Sales and stock reports arrived by email from several locations, exported from two ERP systems that agreed on almost nothing. One produced clean tables. The other produced report-style sheets, with metadata blocks on top, merged cells, headers that moved from file to file, and its own names for the same columns and products.</p>
+        <p>Every cycle meant downloading attachments, cleaning each format by hand and stitching the figures together in spreadsheets. It took hours, left no record of where a number came from, and let errors travel all the way into the report leadership used to decide.</p>
+      </div>
+    </section>
+
+    <section class="cs-section">
+      <span class="eyebrow">How it works</span>
+      <h2>Eight steps from inbox to insight.</h2>
+      <ol class="steps">
+        <li><b>Capture</b><span>Power Automate watches the inbox and saves every report attachment the moment it lands.</span></li>
+        <li><b>Route</b><span>Each file is filed by its source, so nothing is lost and nothing is processed twice.</span></li>
+        <li><b>Find the header</b><span>Python scans each sheet to find where the real table starts, wherever it sits.</span></li>
+        <li><b>Clean</b><span>Metadata is stripped, merged cells undone, and report context such as dates kept.</span></li>
+        <li><b>Standardise</b><span>Both systems are mapped into one schema for stock, invoices, payments and customer balances.</span></li>
+        <li><b>Validate</b><span>Missing fields, impossible dates and duplicate transactions are flagged; useful fields are derived.</span></li>
+        <li><b>Quarantine and log</b><span>Malformed files are set aside, and every run leaves an audit trail.</span></li>
+        <li><b>Publish</b><span>Clean tables feed a Fabric semantic model, and the Power BI app refreshes on its own.</span></li>
+      </ol>
+    </section>
+
+    <section class="cs-section">
+      <span class="eyebrow">What changed</span>
+      <h2>From a weekly chore to a system nobody has to run.</h2>
+      <div class="compare">
+        <div class="before"><b>Before</b>
+          <ul><li>Attachments downloaded by hand</li><li>Each ERP format cleaned manually</li><li>Figures stitched together in spreadsheets</li><li>No record of where a number came from</li><li>Errors caught late, if at all</li></ul>
+        </div>
+        <div class="after"><b>After</b>
+          <ul><li>Reports captured the moment they arrive</li><li>Both formats parsed and reconciled automatically</li><li>One schema across every location</li><li>Every run logged, every figure traceable</li><li>Problems flagged before anyone opens the app</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="cs-section">
+      <span class="eyebrow">Built to be trusted</span>
+      <p class="prose">Speed was never the real goal. A faster report nobody trusts changes nothing, so every record carries the file it came from and the run that processed it, and anything that fails a check is quarantined and reported instead of quietly dropped.</p>
+      <p class="callout">Every number in the app can be traced back to the file it came from.</p>
+      <div class="tags" style="margin-top:18px"><span class="tag">Python</span><span class="tag">pandas</span><span class="tag">Power Automate</span><span class="tag">SharePoint</span><span class="tag">Microsoft Fabric</span><span class="tag">Power BI</span></div>
+    </section>
+
+    <div class="next">
+      <a class="back" href="#work" style="margin-top:0">← All works</a>
+    </div>
+  </main>
+
+  <main id="plantanova" hidden>
+    <a class="back" href="#work">← All works</a>
+
+    <section class="cs-head">
+      <p class="eyebrow">Case study · Business Intelligence · Google · 2025</p>
+      <h1>Plantanova</h1>
+      <p class="sub">Inventory intelligence for a Spanish food exporter. Google Sheets holds the data, Apps Script runs the logic, and Looker Studio shows the business where it stands, with no paid software anywhere in the stack.</p>
+    </section>
+
+    <div class="facts">
+      <div><span class="eyebrow">Built around</span>Plantanova, Spain</div>
+      <div><span class="eyebrow">Stack</span>Sheets · Apps Script · Looker Studio</div>
+      <div><span class="eyebrow">Data</span>Real catalogue, 24 months of modelled trading</div>
+      <div><span class="eyebrow">Runs</span>Daily and weekly, unattended</div>
+    </div>
+
+    <section class="cs-section">
+      <span class="eyebrow">Solution architecture</span>
+      <div class="arch-wrap"><svg class="arch" viewBox="0 0 1185 395" role="img" aria-labelledby="pn-t pn-d">
+  <title id="pn-t">Plantanova solution architecture</title>
+  <desc id="pn-d">Master data, transactions and stock rules live in Google Sheets. An Apps Script engine, run by scheduled triggers, calculates stock by batch and room, allocates shipments oldest-expiry-first, checks reorder points and expiry, and pre-aggregates KPIs. It writes an analytics layer that feeds a live Looker Studio dashboard, and an alert log that drives email alerts. Both reach the managers who act on them.</desc>
+  <defs>
+    <marker id="pah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker>
+    <marker id="pahg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ahg"/></marker>
+  </defs>
+
+  <g class="lbl"><text x="20" y="24">DATA</text><text x="210" y="24">STORE</text><text x="390" y="24">ENGINE</text><text x="640" y="24">OUTPUTS</text><text x="840" y="24">SERVE</text><text x="1025" y="24">USERS</text></g>
+
+  <g class="node"><rect x="20" y="50" width="150" height="58" rx="10"/><text class="t" x="95" y="75">Master data</text><text class="s" x="95" y="94">Products, suppliers, rooms</text></g>
+  <g class="node"><rect x="20" y="137" width="150" height="58" rx="10"/><text class="t" x="95" y="162">Transactions</text><text class="s" x="95" y="181">Receipts, orders, shipments</text></g>
+  <g class="node"><rect x="20" y="224" width="150" height="58" rx="10"/><text class="t" x="95" y="249">Stock rules</text><text class="s" x="95" y="268">Minimum, reorder, maximum</text></g>
+
+  <g class="node"><rect x="210" y="135" width="140" height="62" rx="10"/><text class="t" x="280" y="161">Google Sheets</text><text class="s" x="280" y="180">One table per entity</text></g>
+
+  <g class="etl"><rect x="390" y="40" width="210" height="252" rx="12"/><text class="t" x="495" y="66">Apps Script engine</text></g>
+  <g class="step"><rect x="405" y="82" width="180" height="36" rx="8"/><text x="495" y="105">Stock by batch and room</text></g>
+  <g class="step"><rect x="405" y="128" width="180" height="36" rx="8"/><text x="495" y="151">Oldest expiry ships first</text></g>
+  <g class="step"><rect x="405" y="174" width="180" height="36" rx="8"/><text x="495" y="197">Reorder and expiry checks</text></g>
+  <g class="step"><rect x="405" y="220" width="180" height="36" rx="8"/><text x="495" y="243">KPIs pre-calculated</text></g>
+  <path class="in" d="M495 118 V128 M495 164 V174 M495 210 V220"/>
+
+  <g class="node side"><rect x="425" y="322" width="140" height="54" rx="10"/><text class="t sm" x="495" y="345">Triggers</text><text class="s" x="495" y="362">Daily and weekly</text></g>
+
+  <g class="node key"><rect x="640" y="70" width="160" height="58" rx="10"/><text class="t" x="720" y="95">Analytics layer</text><text class="s" x="720" y="114">Ready-to-read KPI tables</text></g>
+  <g class="node key"><rect x="640" y="210" width="160" height="58" rx="10"/><text class="t" x="720" y="235">Alert log</text><text class="s" x="720" y="254">Every alert recorded</text></g>
+
+  <g class="node"><rect x="840" y="70" width="150" height="58" rx="10"/><text class="t" x="915" y="95">Looker Studio</text><text class="s" x="915" y="114">Live dashboard</text></g>
+  <g class="node"><rect x="840" y="210" width="150" height="58" rx="10"/><text class="t" x="915" y="235">Email alerts</text><text class="s" x="915" y="254">To the right manager</text></g>
+
+  <g class="node goal"><rect x="1025" y="140" width="140" height="58" rx="10"/><text class="t" x="1095" y="165">Managers</text><text class="s" x="1095" y="184">Act before it costs</text></g>
+
+  <g class="flow">
+    <path d="M170 79 C 192 79, 188 150, 208 156" marker-end="url(#pah)"/>
+    <path d="M170 166 H208" marker-end="url(#pah)"/>
+    <path d="M170 253 C 192 253, 188 182, 208 176" marker-end="url(#pah)"/>
+    <path d="M350 166 H388" marker-end="url(#pah)"/>
+    <path d="M600 99 H638" marker-end="url(#pah)"/>
+    <path d="M600 239 H638" marker-end="url(#pah)"/>
+    <path d="M800 99 H838" marker-end="url(#pah)"/>
+    <path d="M800 239 H838" marker-end="url(#pah)"/>
+    <path d="M990 99 C 1010 99, 1005 152, 1023 160" marker-end="url(#pah)"/>
+    <path d="M990 239 C 1010 239, 1005 186, 1023 178" marker-end="url(#pah)"/>
+  </g>
+  <g class="flow side-flow">
+    <path d="M495 320 V294" marker-end="url(#pahg)"/>
+  </g>
+</svg></div>
+      <p class="fnote">Everything in orange runs on its own schedule. Nobody has to open the spreadsheet for the dashboard or the alerts to stay current.</p>
+    </section>
+
+    <section class="cs-section">
+      <span class="eyebrow">The problem</span>
+      <h2>Perishable stock punishes guesswork.</h2>
+      <div class="prose">
+        <p>Plantanova makes and exports capers, olives and pickled vegetables. In the operation I modelled around it, stock sits in a main warehouse and two cold rooms, every product has its own shelf life and temperature range, and export buyers reject anything too close to its expiry date.</p>
+        <p>Run on spreadsheets and memory, an operation like this goes wrong in predictable ways. Old lots get forgotten until they expire, reorders happen when someone notices an empty shelf, and margin is only known once the month has closed. I set out to design the system that would stop each of those before it happens.</p>
+      </div>
+    </section>
+
+    <section class="cs-section">
+      <span class="eyebrow">How it works</span>
+      <h2>Eight rules the system never forgets.</h2>
+      <ol class="steps">
+        <li><b>Receive</b><span>Every delivery becomes a batch with its supplier, cost, production date and expiry.</span></li>
+        <li><b>Store</b><span>Each product goes to the room its temperature range needs, and space is tracked in cubic metres.</span></li>
+        <li><b>Reorder</b><span>Weekly checks compare stock plus open orders against a reorder point set by demand and supplier lead time.</span></li>
+        <li><b>Ship</b><span>Orders take the oldest expiry first, and nothing ships too close to its date for an export buyer.</span></li>
+        <li><b>Write off</b><span>Expired or damaged stock is recorded at what it cost, so losses show up in the numbers.</span></li>
+        <li><b>Calculate</b><span>Stock, value, turnover, fill rate and margin are recalculated every morning.</span></li>
+        <li><b>Alert</b><span>Low stock goes to procurement, expiry risk goes to the warehouse, and every alert is logged first.</span></li>
+        <li><b>Report</b><span>A Looker Studio dashboard reads the pre-calculated tables, so it opens fast and never drifts.</span></li>
+      </ol>
+    </section>
+
+    <section class="cs-section">
+      <span class="eyebrow">Live dashboard</span>
+      <h2>See it running.</h2>
+      <div class="dash"><iframe src="https://datastudio.google.com/embed/reporting/1c2e1a1b-bb0e-470a-ac76-51b36ad344b6/page/A7JbF" title="Plantanova Analytics dashboard" loading="lazy" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe></div>
+      <p class="fnote">The dashboard is live and fully interactive. <a href="https://lookerstudio.google.com/reporting/1c2e1a1b-bb0e-470a-ac76-51b36ad344b6" target="_blank" rel="noopener">Open it full screen ↗</a></p>
+    </section>
+
+
+    <section class="cs-section">
+      <span class="eyebrow">Built to be trusted</span>
+      <p class="prose">A dashboard is only as good as its arithmetic. Cost of sales comes from what each shipped batch actually cost, not from what was bought that month. Stock is valued at cost, space is measured in the same units as the rooms, and every alert is written to a log before any email goes out. When I audited the build, those were exactly the traps I found and closed.</p>
+      <p class="callout">Every kilo shipped traces back to its batch, its supplier and the room it left from.</p>
+      <div class="tags" style="margin-top:18px"><span class="tag">Google Sheets</span><span class="tag">Apps Script</span><span class="tag">JavaScript</span><span class="tag">Looker Studio</span><span class="tag">Gmail</span></div>
+    </section>
+
+    <div class="next">
+      <a class="back" href="#work" style="margin-top:0">← All works</a>
+    </div>
+  </main>
+
+  <main id="ims" hidden>
+    <a class="back" href="#work">← All works</a>
+
+    <section class="cs-head">
+      <p class="eyebrow">Case study · Low-code · Microsoft · 2026</p>
+      <h1>Integrated Management System</h1>
+      <p class="sub">An ISO compliance system on Microsoft 365 for an offshore EPCI contractor. Power Apps captures the record, Power Automate runs the process, and Power BI shows leadership where the whole company stands.</p>
+    </section>
+
+    <section class="cs-section">
+      <span class="eyebrow">Solution architecture</span>
+      <div class="arch-wrap"><svg class="arch" viewBox="0 0 1185 395" role="img" aria-labelledby="ims-t ims-d">
+  <title id="ims-t">Integrated Management System solution architecture</title>
+  <desc id="ims-d">Power Apps forms, document libraries and compliance schedules feed SharePoint registers on a hub and department sites, set up by repeatable PowerShell scripts. Power Automate numbers every record, scores and escalates risk, opens a corrective action when a high risk stays open 14 days, and logs every action. A scheduled flow rolls all sites into one metrics snapshot that feeds Power BI, secured by role, while a shared audit logger builds the audit trail. Both reach leadership and auditors.</desc>
+  <defs>
+    <marker id="iah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker>
+    <marker id="iahg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ahg"/></marker>
+  </defs>
+
+  <g class="lbl"><text x="20" y="24">CAPTURE</text><text x="210" y="24">STORE</text><text x="390" y="24">AUTOMATE</text><text x="640" y="24">AGGREGATE</text><text x="840" y="24">SERVE</text><text x="1025" y="24">USERS</text></g>
+
+  <g class="node"><rect x="20" y="50" width="150" height="58" rx="10"/><text class="t" x="95" y="75">Power Apps</text><text class="s" x="95" y="94">Risks, incidents, CAPAs</text></g>
+  <g class="node"><rect x="20" y="137" width="150" height="58" rx="10"/><text class="t" x="95" y="162">Document libraries</text><text class="s" x="95" y="181">Procedures, bids, projects</text></g>
+  <g class="node"><rect x="20" y="224" width="150" height="58" rx="10"/><text class="t" x="95" y="249">Schedules</text><text class="s" x="95" y="268">Reviews, audits, renewals</text></g>
+
+  <g class="node"><rect x="210" y="135" width="140" height="62" rx="10"/><text class="t" x="280" y="161">SharePoint</text><text class="s" x="280" y="180">Hub + department sites</text></g>
+  <g class="node side"><rect x="210" y="322" width="140" height="54" rx="10"/><text class="t sm" x="280" y="345">PowerShell</text><text class="s" x="280" y="362">Repeatable setup</text></g>
+
+  <g class="etl"><rect x="390" y="40" width="210" height="252" rx="12"/><text class="t" x="495" y="66">Power Automate</text></g>
+  <g class="step"><rect x="405" y="82" width="180" height="36" rx="8"/><text x="495" y="105">Number every record</text></g>
+  <g class="step"><rect x="405" y="128" width="180" height="36" rx="8"/><text x="495" y="151">Score and escalate risk</text></g>
+  <g class="step"><rect x="405" y="174" width="180" height="36" rx="8"/><text x="495" y="197">CAPA after 14 days open</text></g>
+  <g class="step"><rect x="405" y="220" width="180" height="36" rx="8"/><text x="495" y="243">Log every action</text></g>
+  <path class="in" d="M495 118 V128 M495 164 V174 M495 210 V220"/>
+  <g class="node side"><rect x="425" y="322" width="140" height="54" rx="10"/><text class="t sm" x="495" y="345">Schedule</text><text class="s" x="495" y="362">Every 30 minutes</text></g>
+
+  <g class="node key"><rect x="640" y="70" width="160" height="58" rx="10"/><text class="t" x="720" y="95">Metrics snapshot</text><text class="s" x="720" y="114">Every site, one table</text></g>
+  <g class="node key"><rect x="640" y="210" width="160" height="58" rx="10"/><text class="t" x="720" y="235">Audit logger</text><text class="s" x="720" y="254">Shared by every flow</text></g>
+
+  <g class="node"><rect x="840" y="70" width="150" height="58" rx="10"/><text class="t" x="915" y="95">Power BI</text><text class="s" x="915" y="114">Secured by role</text></g>
+  <g class="node"><rect x="840" y="210" width="150" height="58" rx="10"/><text class="t" x="915" y="235">Audit trail</text><text class="s" x="915" y="254">Evidence on demand</text></g>
+
+  <g class="node goal"><rect x="1025" y="140" width="140" height="58" rx="10"/><text class="t" x="1095" y="165">Leadership</text><text class="s" x="1095" y="184">and auditors</text></g>
+
+  <g class="flow">
+    <path d="M170 79 C 192 79, 188 150, 208 156" marker-end="url(#iah)"/>
+    <path d="M170 166 H208" marker-end="url(#iah)"/>
+    <path d="M170 253 C 192 253, 188 182, 208 176" marker-end="url(#iah)"/>
+    <path d="M350 166 H388" marker-end="url(#iah)"/>
+    <path d="M600 99 H638" marker-end="url(#iah)"/>
+    <path d="M600 239 H638" marker-end="url(#iah)"/>
+    <path d="M800 99 H838" marker-end="url(#iah)"/>
+    <path d="M800 239 H838" marker-end="url(#iah)"/>
+    <path d="M990 99 C 1010 99, 1005 152, 1023 160" marker-end="url(#iah)"/>
+    <path d="M990 239 C 1010 239, 1005 186, 1023 178" marker-end="url(#iah)"/>
+  </g>
+  <g class="flow side-flow">
+    <path d="M280 320 V199" marker-end="url(#iahg)"/>
+    <path d="M495 320 V294" marker-end="url(#iahg)"/>
+  </g>
+</svg></div>
+      <p class="fnote">Records move through the orange path on their own. Nobody chases an approval, numbers a record or compiles a report by hand.</p>
+    </section>
+
+    <section class="cs-section">
+      <span class="eyebrow">The problem</span>
+      <h2>Compliance shouldn't live in inboxes.</h2>
+      <div class="prose">
+        <p>The contractor was working toward ISO 9001, 14001 and 45001 and API Q1 and Q2. Its risks, incidents, corrective actions, permits and documents sat in separate registers across ten departmental sites, and approvals were chased by hand. Proving compliance to an auditor meant rebuilding the story from emails and spreadsheets.</p>
+        <p>A colleague had provisioned the SharePoint foundation. I built what makes it run: the entry apps, the workflows, the audit trail and the executive reporting. What is demonstrated here is the pre-production build, before the system went live.</p>
+      </div>
+    </section>
+
+    <section class="cs-section">
+      <span class="eyebrow">How it works</span>
+      <h2>Eight rules, applied to every record.</h2>
+      <ol class="steps">
+        <li><b>Capture</b><span>Power Apps forms for risks, incidents, corrective actions and audit findings fill in the user and date themselves.</span></li>
+        <li><b>Number</b><span>Every record gets a structured ID of type, department, sequence and revision, generated in the workflow.</span></li>
+        <li><b>Score</b><span>Risk is likelihood times impact: 15 and above is High, 6 and above is Medium.</span></li>
+        <li><b>Escalate</b><span>High risks alert their owners in Teams, and one left open 14 days raises its own corrective action.</span></li>
+        <li><b>Link</b><span>Records reference each other across sites by ID, because SharePoint lookups stop at the site boundary.</span></li>
+        <li><b>Run the business</b><span>Flows carry the contractor's own processes, from bid and tender to project closeout and management review.</span></li>
+        <li><b>Log</b><span>Every flow calls one shared audit logger, so every action lands in a single trail.</span></li>
+        <li><b>Report</b><span>Every 30 minutes, counts from every site land in one snapshot table that feeds Power BI.</span></li>
+      </ol>
+    </section>
+
+    <section class="cs-section">
+      <span class="eyebrow">See it working</span>
+      <h2>The executive dashboards.</h2>
+      <div class="dash doc"><iframe src="assets/ims/ims-dashboards.pdf#view=FitH&amp;navpanes=0" title="Integrated Management System dashboards (PDF)" loading="lazy"></iframe></div>
+      <a class="btn pdf-link" href="assets/ims/ims-dashboards.pdf" target="_blank" rel="noopener">Open the dashboards (PDF) ↗</a>
+      <p class="fnote">Exported from Power BI, with the client's name and staff names removed. <a href="assets/ims/ims-dashboards.pdf" target="_blank" rel="noopener">Open the PDF ↗</a></p>
+    </section>
+
+    <section class="cs-section">
+      <span class="eyebrow">Built to be trusted</span>
+      <p class="prose">In a compliance system, the record is the product. Every workflow writes to the same audit logger, the lists the workflows depend on are created by PowerShell scripts that can run twice without breaking anything, and each Power BI view is mapped to the Azure AD group allowed to see it.</p>
+      <p class="callout">Every action leaves an audit record, written by one logger every workflow shares.</p>
+      <div class="tags" style="margin-top:18px"><span class="tag">Power Apps</span><span class="tag">Power Automate</span><span class="tag">SharePoint</span><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">PowerShell</span><span class="tag">Azure AD</span></div>
+    </section>
+
+    <div class="next">
+      <a class="back" href="#work" style="margin-top:0">← All works</a>
+    </div>
+  </main>
+
+  <main id="yaag" hidden>
+    <a class="back" href="#work">← All works</a>
+
+    <section class="cs-head">
+      <p class="eyebrow">Case study · Automation · Google · 2025</p>
+      <h1>YAAG</h1>
+      <p class="sub">Year at a Glance. A planning sheet that runs a private calendar: the person who plans the diary works in Google Sheets, and the person who lives by it only ever opens Google Calendar.</p>
+    </section>
+
+    <section class="cs-section">
+      <span class="eyebrow">Solution architecture</span>
+      <div class="arch-wrap"><svg class="arch" viewBox="0 0 1185 330" role="img" aria-labelledby="yg-t yg-d">
+  <title id="yg-t">YAAG solution architecture</title>
+  <desc id="yg-d">An assistant plans in a Google Sheet with a year grid and a day list that mirror each other on every edit. Apps Script mirrors the two views, applies start and end times, then creates, updates or deletes events and stores each event ID. Events land in one dedicated calendar that the executive overlays on their own, so the executive only ever sees the calendar.</desc>
+  <defs>
+    <marker id="yah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker>
+  </defs>
+
+  <g class="lbl"><text x="20" y="24">PLANNER</text><text x="210" y="24">PLAN</text><text x="440" y="24">SYNC</text><text x="720" y="24">CALENDAR</text><text x="1005" y="24">EXECUTIVE</text></g>
+
+  <g class="node"><rect x="20" y="136" width="150" height="58" rx="10"/><text class="t" x="95" y="161">Assistant</text><text class="s" x="95" y="180">Owns the plan</text></g>
+
+  <g class="node"><rect x="210" y="70" width="170" height="58" rx="10"/><text class="t" x="295" y="95">Year grid</text><text class="s" x="295" y="114">Twelve months, one screen</text></g>
+  <g class="node"><rect x="210" y="202" width="170" height="58" rx="10"/><text class="t" x="295" y="227">Day list</text><text class="s" x="295" y="246">Times and notes</text></g>
+
+  <g class="etl"><rect x="440" y="40" width="220" height="252" rx="12"/><text class="t" x="550" y="66">Apps Script</text></g>
+  <g class="step"><rect x="455" y="82" width="190" height="36" rx="8"/><text x="550" y="105">Mirror grid and list</text></g>
+  <g class="step"><rect x="455" y="128" width="190" height="36" rx="8"/><text x="550" y="151">Apply start and end times</text></g>
+  <g class="step"><rect x="455" y="174" width="190" height="36" rx="8"/><text x="550" y="197">Create, move or delete</text></g>
+  <g class="step"><rect x="455" y="220" width="190" height="36" rx="8"/><text x="550" y="243">Remember each event ID</text></g>
+  <path class="in" d="M550 118 V128 M550 164 V174 M550 210 V220"/>
+
+  <g class="node key"><rect x="720" y="136" width="220" height="58" rx="10"/><text class="t" x="830" y="161">Dedicated calendar</text><text class="s" x="830" y="180">Overlaid, never the main one</text></g>
+
+  <g class="node goal"><rect x="1005" y="136" width="160" height="58" rx="10"/><text class="t" x="1085" y="161">Executive</text><text class="s" x="1085" y="180">Only sees the calendar</text></g>
+
+  <g class="flow">
+    <path d="M170 158 C 190 158, 190 105, 208 101" marker-end="url(#yah)"/>
+    <path d="M170 172 C 190 172, 190 225, 208 229" marker-end="url(#yah)"/>
+    <path d="M295 130 V200" marker-start="url(#yah)" marker-end="url(#yah)"/>
+    <path d="M380 99 C 410 99, 410 150, 438 155" marker-end="url(#yah)"/>
+    <path d="M380 231 C 410 231, 410 180, 438 175" marker-end="url(#yah)"/>
+    <path d="M660 165 H718" marker-end="url(#yah)"/>
+    <path d="M940 165 H1003" marker-end="url(#yah)"/>
+  </g>
+</svg></div>
+      <p class="fnote">The assistant works on the left, the executive lives on the right, and the calendar in between is the only thing they share.</p>
+    </section>
+
+    <section class="cs-section">
+      <span class="eyebrow">The problem</span>
+      <h2>A diary shouldn't need two people inside it.</h2>
+      <div class="prose">
+        <p>A senior executive's calendar holds everything: board meetings, travel, family, private appointments. The person who actually runs the diary, an assistant or chief of staff, needs somewhere to plan, move and clear commitments. Giving them full access to the calendar exposes all of it. Running it through messages means double entry, missed changes and events that should have been cancelled weeks ago.</p>
+        <p>YAAG started as my own year plan. Every project on this page began as a line on one of its dates.</p>
+      </div>
+    </section>
+
+    <section class="cs-section">
+      <span class="eyebrow">How it works</span>
+      <h2>Plan in the sheet. Live in the calendar.</h2>
+      <ol class="steps">
+        <li><b>Plan</b><span>The year sits on one sheet: twelve months side by side, one line per day.</span></li>
+        <li><b>Mirror</b><span>Edit a day on the year grid or on the day list and the other updates instantly, deletions included.</span></li>
+        <li><b>Schedule</b><span>Every day carries a start and end time from a dropdown, with sensible defaults.</span></li>
+        <li><b>Sync</b><span>One run creates new events, moves changed ones and deletes cleared ones, keyed on a stored event ID so nothing is ever duplicated.</span></li>
+      </ol>
+    </section>
+
+    <section class="cs-section">
+      <span class="eyebrow">See it working</span>
+      <h2>The year sheet.</h2>
+      <figure class="shot-img wide"><a href="assets/yaag/yaag-year-sheet.png" target="_blank" rel="noopener"><img src="assets/yaag/yaag-year-sheet.png" alt="The YAAG year sheet: twelve months side by side, a date, day and objective for every day, with the objectives blurred" loading="lazy"></a><figcaption class="fnote" style="margin-top:0">The real 2025 year sheet, with every plan blurred. The calendar it feeds stays private. Opens full size.</figcaption></figure>
+    </section>
+
+    <section class="cs-section">
+      <span class="eyebrow">Private by design</span>
+      <p class="prose">YAAG writes to one dedicated calendar and nothing else. The executive shares that calendar with whoever runs the sheet and lays it over their own, so the assistant can manage every commitment without ever seeing the main calendar or anything else in it.</p>
+      <p class="callout">The assistant manages the plan. The calendar, and everything else in it, stays the executive's.</p>
+      <div class="tags" style="margin-top:18px"><span class="tag">Apps Script</span><span class="tag">Google Sheets</span><span class="tag">Google Calendar</span><span class="tag">JavaScript</span></div>
+    </section>
+
+    <div class="next">
+      <a class="back" href="#work" style="margin-top:0">← All works</a>
+    </div>
+  </main>
+
+  <main id="aura" hidden>
+    <a class="back" href="#work">← All works</a>
+
+    <section class="cs-head">
+      <p class="eyebrow">Case study · Business Intelligence · SQL · 2025</p>
+      <h1>Aura Churn Intelligence</h1>
+      <p class="sub">Churn and retention analytics for Aura Beauty Salon in New Zealand. Built off the Zenoti API: salon records funnelled into a cloud MySQL database, SQL views that do the heavy lifting, and a Power BI app that shows which clients are drifting away before they are gone.</p>
+    </section>
+
+    <section class="cs-section">
+      <span class="eyebrow">Solution architecture</span>
+      <div class="arch-wrap"><svg class="arch" viewBox="0 0 1185 330" role="img" aria-labelledby="au-t au-d">
+  <title id="au-t">Aura Churn Intelligence solution architecture</title>
+  <desc id="au-d">Clients, bookings, payments and reviews come from the Zenoti API. A scheduled Python job in the cloud funnels them into a cloud-hosted MySQL database with keys and indexes. SQL views pre-compute daily revenue and bookings, each client's status every month, cohort retention and staff performance. A Power BI semantic model with DAX measures refreshes from the cloud database on a schedule and serves a live report to the salon owner.</desc>
+  <defs>
+    <marker id="aah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker>
+  </defs>
+
+  <g class="lbl"><text x="20" y="24">SOURCE</text><text x="185" y="24">INGEST</text><text x="345" y="24">STORE</text><text x="500" y="24">MODEL IN SQL</text><text x="730" y="24">SEMANTIC</text><text x="885" y="24">SERVE</text><text x="1040" y="24">USERS</text></g>
+
+  <g class="node key"><rect x="20" y="135" width="135" height="62" rx="10"/><text class="t" x="87" y="161">Zenoti API</text><text class="s" x="87" y="180">Salon records</text></g>
+
+  <g class="node"><rect x="185" y="135" width="130" height="62" rx="10"/><text class="t" x="250" y="161">Python job</text><text class="s" x="250" y="180">Scheduled, in the cloud</text></g>
+
+  <g class="node"><rect x="345" y="135" width="125" height="62" rx="10"/><text class="t" x="407" y="161">Cloud MySQL</text><text class="s" x="407" y="180">Hosted, indexed</text></g>
+
+  <g class="etl"><rect x="500" y="40" width="200" height="252" rx="12"/><text class="t" x="600" y="66">SQL views</text></g>
+  <g class="step"><rect x="513" y="82" width="174" height="36" rx="8"/><text x="600" y="105">Daily revenue, bookings</text></g>
+  <g class="step"><rect x="513" y="128" width="174" height="36" rx="8"/><text x="600" y="151">Client status by month</text></g>
+  <g class="step"><rect x="513" y="174" width="174" height="36" rx="8"/><text x="600" y="197">Cohort retention</text></g>
+  <g class="step"><rect x="513" y="220" width="174" height="36" rx="8"/><text x="600" y="243">Staff performance</text></g>
+  <path class="in" d="M600 118 V128 M600 164 V174 M600 210 V220"/>
+
+  <g class="node"><rect x="730" y="135" width="125" height="62" rx="10"/><text class="t" x="792" y="161">Power BI model</text><text class="s" x="792" y="180">DAX measures</text></g>
+
+  <g class="node"><rect x="885" y="135" width="125" height="62" rx="10"/><text class="t" x="947" y="161">Power BI app</text><text class="s" x="947" y="180">Scheduled refresh</text></g>
+
+  <g class="node goal"><rect x="1040" y="135" width="125" height="62" rx="10"/><text class="t" x="1102" y="161">Salon owner</text><text class="s" x="1102" y="180">Acts before lapse</text></g>
+
+  <g class="flow">
+    <path d="M155 166 H183" marker-end="url(#aah)"/>
+    <path d="M315 166 H343" marker-end="url(#aah)"/>
+    <path d="M470 166 H498" marker-end="url(#aah)"/>
+    <path d="M700 166 H728" marker-end="url(#aah)"/>
+    <path d="M855 166 H883" marker-end="url(#aah)"/>
+    <path d="M1010 166 H1038" marker-end="url(#aah)"/>
+  </g>
+</svg></div>
+      <p class="fnote">Most of the logic lives in SQL, not in the dashboard, so every figure can be queried and checked on its own.</p>
+    </section>
+
+    <section class="cs-section">
+      <span class="eyebrow">The problem</span>
+      <h2>Clients don't cancel. They just stop coming.</h2>
+      <div class="prose">
+        <p>A salon lives on repeat visits. When a regular drifts away there is no cancellation and no complaint, only a gap in the diary that nobody notices until revenue dips months later. By then the client has found someone else.</p>
+        <p>Aura needed to see that drift while it could still be reversed: who is slipping, which services and staff keep clients coming back, and whether lapsed clients can be won back. The data architecture is built off the Zenoti API, the salon software: records are funnelled from the API into SQL, so the same pipeline plugs into any Zenoti account. The figures shown are modelled.</p>
+      </div>
+    </section>
+
+    <section class="cs-section">
+      <span class="eyebrow">How it works</span>
+      <h2>Eight steps from booking to warning.</h2>
+      <ol class="steps">
+        <li><b>Ingest</b><span>A scheduled Python job in the cloud pulls clients, bookings, payments and reviews from the Zenoti API, field for field.</span></li>
+        <li><b>Store</b><span>Everything lands in a cloud-hosted MySQL database with primary and foreign keys and proper indexes.</span></li>
+        <li><b>Shape</b><span>SQL views pre-compute daily revenue, bookings and staff time, so the report never recalculates raw rows.</span></li>
+        <li><b>Classify</b><span>Every client, every month, is marked Active, At-Risk or Churned from the days since their last visit.</span></li>
+        <li><b>Cohort</b><span>Clients are grouped by the month they first visited and followed month by month.</span></li>
+        <li><b>Measure</b><span>DAX turns the views into retention, churn, win-back, lifetime value and no-show rates.</span></li>
+        <li><b>Explore</b><span>Every page filters by service, staff member, loyalty tier and client type.</span></li>
+        <li><b>Publish</b><span>The Power BI app refreshes from the cloud database on a schedule, so the salon always opens today's numbers.</span></li>
+      </ol>
+    </section>
+
+    <section class="cs-section">
+      <span class="eyebrow">See it working</span>
+      <h2>The live report.</h2>
+      <div class="dash"><iframe src="https://app.powerbi.com/view?r=eyJrIjoiY2Y1MTYxZTItMzVkZS00NjA1LTg2MjQtNDlmNWUxOTNmM2M2IiwidCI6IjlhNGMxNjFlLTU2NjQtNDZhMi05ZjBjLWM1OTk4ODRhNDEzZSIsImMiOjF9" title="Aura Beauty Salon Power BI report" loading="lazy" allowfullscreen></iframe></div>
+      <p class="fnote">Live and fully interactive. <a href="https://app.powerbi.com/view?r=eyJrIjoiY2Y1MTYxZTItMzVkZS00NjA1LTg2MjQtNDlmNWUxOTNmM2M2IiwidCI6IjlhNGMxNjFlLTU2NjQtNDZhMi05ZjBjLWM1OTk4ODRhNDEzZSIsImMiOjF9" target="_blank" rel="noopener">Open it full screen ↗</a></p>
+    </section>
+
+    <section class="cs-section">
+      <span class="eyebrow">Built on a real database</span>
+      <p class="prose">The dashboard is the last step, not the engine. Relationships and constraints live in the cloud MySQL database, the heavy aggregation lives in SQL views, and Power BI only reads results that are already correct. Change a rule once in SQL and every page follows.</p>
+      <p class="callout">Every number in the report comes from a SQL view that can be run and checked on its own.</p>
+      <div class="tags" style="margin-top:18px"><span class="tag">MySQL</span><span class="tag">SQL</span><span class="tag">Python</span><span class="tag">Power BI</span><span class="tag">DAX</span></div>
+    </section>
+
+    <div class="next">
+      <a class="back" href="#work" style="margin-top:0">← All works</a>
+    </div>
+  </main>
+
+  <main id="oze" hidden>
+    <a class="back" href="#work">← All works</a>
+
+    <section class="cs-head">
+      <p class="eyebrow">Case study · Automation · 2026</p>
+      <h1>Oze</h1>
+      <p class="sub">Personal AI Job Board. It reads every new opening so I don't have to, scores each one against my CV, and sends me only the few worth my time.</p>
+    </section>
+
+    <section class="cs-section">
+      <span class="eyebrow">Solution architecture</span>
+      <div class="arch-wrap"><svg class="arch" viewBox="0 0 1185 395" role="img" aria-labelledby="oze-t oze-d">
+  <title id="oze-t">Oze solution architecture</title>
+  <desc id="oze-d">A scheduler starts each run three times a week. Oze collects openings from several job sources into an n8n workflow that normalises, prefilters, deduplicates and queues them. An AI model scores every job against the CV, the results are ranked and capped, and each run writes a job log, a health report and alerts to the phone. Strong jobs not yet sent carry over to the next run, and a separate error workflow raises an alarm if a run crashes.</desc>
+  <defs>
+    <marker id="oah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker>
+    <marker id="oahg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ahg"/></marker>
+  </defs>
+  <g class="lbl"><text x="20" y="24">SCHEDULE</text><text x="200" y="24">COLLECT</text><text x="395" y="24">PROCESS</text><text x="625" y="24">SCORE</text><text x="815" y="24">RANK</text><text x="1005" y="24">DELIVER</text></g>
+
+  <g class="node"><rect x="20" y="121" width="140" height="62" rx="10"/><text class="t" x="90" y="147">Scheduler</text><text class="s" x="90" y="166">Three runs a week</text></g>
+
+  <g class="node"><rect x="200" y="72" width="150" height="50" rx="10"/><text class="t sm" x="275" y="93">Job source A</text><text class="s" x="275" y="110">New openings</text></g>
+  <g class="node"><rect x="200" y="127" width="150" height="50" rx="10"/><text class="t sm" x="275" y="148">Job source B</text><text class="s" x="275" y="165">New openings</text></g>
+  <g class="node"><rect x="200" y="182" width="150" height="50" rx="10"/><text class="t sm" x="275" y="203">Job source C…</text><text class="s" x="275" y="220">New openings</text></g>
+
+  <g class="etl"><rect x="395" y="40" width="190" height="252" rx="12"/><text class="t" x="490" y="66">n8n workflow</text></g>
+  <g class="step"><rect x="410" y="82" width="160" height="36" rx="8"/><text x="490" y="105">Normalise records</text></g>
+  <g class="step"><rect x="410" y="128" width="160" height="36" rx="8"/><text x="490" y="151">Prefilter</text></g>
+  <g class="step"><rect x="410" y="174" width="160" height="36" rx="8"/><text x="490" y="197">Deduplicate</text></g>
+  <g class="step"><rect x="410" y="220" width="160" height="36" rx="8"/><text x="490" y="243">Queue for scoring</text></g>
+  <path class="in" d="M490 118 V128 M490 164 V174 M490 210 V220"/>
+
+  <g class="node side"><rect x="395" y="322" width="190" height="54" rx="10"/><text class="t sm" x="490" y="345">Error workflow</text><text class="s" x="490" y="362">Alarm if a run crashes</text></g>
+
+  <g class="node key"><rect x="625" y="121" width="150" height="62" rx="10"/><text class="t" x="700" y="147">AI scoring</text><text class="s" x="700" y="166">Every job vs my CV</text></g>
+  <g class="node"><rect x="815" y="121" width="150" height="62" rx="10"/><text class="t" x="890" y="147">Rank and cap</text><text class="s" x="890" y="166">Top five per run</text></g>
+
+  <g class="node"><rect x="1005" y="40" width="160" height="58" rx="10"/><text class="t" x="1085" y="65">Job log</text><text class="s" x="1085" y="84">Every job, every status</text></g>
+  <g class="node"><rect x="1005" y="128" width="160" height="58" rx="10"/><text class="t" x="1085" y="153">Health report</text><text class="s" x="1085" y="172">Every stage, every run</text></g>
+  <g class="node"><rect x="1005" y="216" width="160" height="58" rx="10"/><text class="t" x="1085" y="241">Phone alerts</text><text class="s" x="1085" y="260">The best matches</text></g>
+  <g class="node goal"><rect x="1005" y="304" width="160" height="58" rx="10"/><text class="t" x="1085" y="329">Me</text><text class="s" x="1085" y="348">Only what's worth it</text></g>
+
+  <g class="flow">
+    <path d="M160 152 C 180 152, 180 97, 198 97" marker-end="url(#oah)"/>
+    <path d="M160 152 H198" marker-end="url(#oah)"/>
+    <path d="M160 152 C 180 152, 180 207, 198 207" marker-end="url(#oah)"/>
+    <path d="M350 97 C 372 97, 372 150, 393 150" marker-end="url(#oah)"/>
+    <path d="M350 152 H393" marker-end="url(#oah)"/>
+    <path d="M350 207 C 372 207, 372 154, 393 154" marker-end="url(#oah)"/>
+    <path d="M585 152 H623" marker-end="url(#oah)"/>
+    <path d="M775 152 H813" marker-end="url(#oah)"/>
+    <path d="M965 152 C 985 152, 985 69, 1003 69" marker-end="url(#oah)"/>
+    <path d="M965 152 C 985 152, 985 157, 1003 157" marker-end="url(#oah)"/>
+    <path d="M965 152 C 985 152, 985 245, 1003 245" marker-end="url(#oah)"/>
+    <path d="M1085 274 V302" marker-end="url(#oah)"/>
+  </g>
+  <g class="flow side-flow">
+    <path d="M490 292 V320" marker-end="url(#oahg)"/>
+    <path d="M1003 52 C 930 30, 890 60, 890 119" marker-end="url(#oahg)"/>
+  </g>
+  <text class="s" x="882" y="96" style="text-anchor:end;font-style:italic">carryover</text>
+</svg></div>
+      <figure class="shot-img wide" style="margin-top:14px"><a href="assets/oze/oze-workflow.jpg" target="_blank" rel="noopener"><img src="assets/oze/oze-workflow.jpg" alt="The live Oze workflow in n8n" loading="lazy"></a><figcaption>The live workflow in n8n. The orange path above runs unattended; strong jobs not yet sent carry over to the next run.</figcaption></figure>
+    </section>
+
+    <section class="cs-section">
+      <span class="eyebrow">The problem</span>
+      <h2>Job hunting shouldn't be a full-time job.</h2>
+      <div class="prose">
+        <p>Anyone who has searched for a job knows the grind: the same roles posted across many sites, different filters on each, and the few genuine fits buried under thousands that aren't. Reading them properly takes hours every week, and the best opportunities are still easy to miss.</p>
+        <p>More searching isn't the answer. What's needed is something that reads everything, judges each role the way a careful person would, and only interrupts when a job is worth the time. That is what Oze does.</p>
+      </div>
+    </section>
+
+    <section class="cs-section">
+      <span class="eyebrow">How it works</span>
+      <h2>Eight steps, every run, no one watching.</h2>
+      <ol class="steps">
+        <li><b>Schedule</b><span>Runs three times a week, each run covering exactly the time since the last.</span></li>
+        <li><b>Collect</b><span>Pulls new openings from several job sources in one pass.</span></li>
+        <li><b>Normalise</b><span>Reshapes every source into one clean, comparable record.</span></li>
+        <li><b>Prefilter</b><span>Cheap rules drop obvious mismatches before anything costs money.</span></li>
+        <li><b>Deduplicate</b><span>Catches the same job posted twice, on two sites or as a repost.</span></li>
+        <li><b>Score</b><span>An AI model reads each description against my CV and returns a structured verdict.</span></li>
+        <li><b>Rank and cap</b><span>Only the top five become alerts. Strong jobs not yet sent compete again next run.</span></li>
+        <li><b>Deliver</b><span>Alerts to my phone, a full log in a spreadsheet, and a health report on every run.</span></li>
+      </ol>
+    </section>
+
+    <section class="cs-section">
+      <span class="eyebrow">The first nine days · 19 to 27 Sep 2026</span>
+      <h2>1,634 jobs read. 30 worth sending.</h2>
+      <div class="funnel" id="funnel">
+        <div class="frow"><span class="flabel">Read and scored<small>every new opening, by AI</small></span><span class="ftrack"><span class="fbar" data-v="1634"></span><span class="fnum">1,634</span></span></div>
+        <div class="frow"><span class="flabel">Worth a look<small>rated 4 out of 10 or better</small></span><span class="ftrack"><span class="fbar" data-v="279"></span><span class="fnum">279</span></span></div>
+        <div class="frow"><span class="flabel">Sent as alerts<small>the best of each run</small></span><span class="ftrack"><span class="fbar" data-v="30"></span><span class="fnum">30</span></span></div>
+        <div class="frow"><span class="flabel">Top-rated<small>7 out of 10, every one alerted</small></span><span class="ftrack"><span class="fbar end" data-v="10"></span><span class="fnum">10</span></span></div>
+      </div>
+      <p class="fnote">Not a single scoring failure across all 1,634 jobs. Nothing below the cap is lost either: every scored job stays in the log.</p>
+    </section>
+
+    <section class="cs-section">
+      <span class="eyebrow">Built to fail loudly</span>
+      <p class="prose">A job source that quietly returns nothing looks exactly like a slow market, so Oze checks itself on every run, raises an alarm when anything breaks, and stops outright when data arrives in a shape it doesn't expect.</p>
+      <p class="callout">When Oze is silent, the market is quiet. It never means something broke.</p>
+    </section>
+
+    <div class="next">
+      <a class="back" href="#work" style="margin-top:0">← All works</a>
+    </div>
+  </main>
+
+  <footer id="contact">
+    <h2 class="sub-h" style="margin-bottom:0">Contact</h2>
+    <div class="contact-row">
+      <p class="email">anoze.u19@gmail.com</p>
+      <div class="actions">
+        <a class="btn" href="https://linkedin.com/in/anoze-umar">LinkedIn</a>
+        <a class="btn" href="https://github.com/Anoze-Umar">GitHub</a>
+        <a class="btn" href="assets/Anoze_Umar_CV.pdf" download="Anoze_Umar_CV.pdf">Resume</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var home = document.getElementById('home');
+  var oze = document.getElementById('oze');
+  var bars = document.querySelectorAll('#funnel .fbar');
+  var max = 1634;
+
+  function drawFunnel(){
+    bars.forEach(function(b){
+      var v = Number(b.getAttribute('data-v'));
+      b.style.width = 'calc((100% - 56px) * ' + (v / max) + ')';
+    });
+  }
+
+  var studies = ['oze','pipeline','plantanova','ims','yaag','aura'];
+  function route(){
+    var h = location.hash.replace('#','');
+    var showCase = studies.indexOf(h) >= 0;
+    studies.forEach(function(id){ var el = document.getElementById(id); if (el) el.hidden = (id !== h); });
+    home.hidden = showCase;
+    if (showCase){ window.scrollTo(0,0); if (h === 'oze') drawFunnel(); }
+    else if (h === 'work' || h === 'skills' || h === 'about' || h === 'top'){
+      var el = document.getElementById(h);
+      if (el) el.scrollIntoView();
+    }
+  }
+  window.addEventListener('hashchange', route);
+  drawFunnel();
+  route();
+})();
+</script>
+</body>
+</html>
